@@ -1,4 +1,3 @@
-//ANALISA SORTING
 //Nama 	: Siti Zuhrotn Nafi'atur Rohmah
 //NPM	: 19081010067
 //Kelas	: Pemrograman Lanjut Paralel A
