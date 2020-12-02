@@ -28,7 +28,7 @@ void bubbleSort(int arr[], int jumlah){
 
 int main() {
     int menu,hapus,jumlah=0,proses=0,i,j,posisi,cari,tmp,flag,kiri,kanan,tengah;
-    int nilai[100],nilai_2[100];
+    int nilai[10],nilai_2[10];
 
 	data mhs;
 	data *pmhs;
@@ -119,41 +119,51 @@ int main() {
         }
         
         else if (menu==3){
-          	for (i=0;i<jumlah;i++) {
-                if (nilai[i]==NULL) printf("  "); 
-				else
-					printf("\nnilai ulangan harian: %d ",nilai[i]);
-                  }
-			  bubbleSort(nilai,jumlah);
-			  printf("\n\nHasil pengurutan bubble sort sebagai berikut:\n");
-			  for(i = 0; i < jumlah; i++){
-			    printf("%d ", nilai[i]);
-			  }
-			  printf("\n");
+        	if (jumlah>0){
+	          	for (i=0;i<jumlah;i++) {
+	                if (nilai[i]==NULL) printf("  "); 
+					else
+						printf("\nnilai ulangan harian: %d ",nilai[i]);
+	                  }
+				  bubbleSort(nilai,jumlah);
+				  printf("\n\nHasil pengurutan bubble sort sebagai berikut:\n");
+				  for(i = 0; i < jumlah; i++){
+				    printf("%d ", nilai[i]);
+				  }
+				  printf("\n");        		
+			}
+			else {
+                  printf("\nmasukkan data pada menu no.1 terlebih dahulu");
+            }
 		}     
 		
 		else if (menu==4){
-          	for (i=0;i<jumlah;i++) {
-                if (nilai[i]==NULL) printf("  "); 
-				else
-					printf("\n~nilai ulangan harian ke %d :",i+1);
-					printf("%d",nilai[i]);
-            }
-            //rumus selection
-			for(i=0;i<(jumlah-1);i++){
-		        for(j= i+1;j<jumlah;j++){
-		            if(nilai[i]>nilai[j]){
-		                tmp=nilai[i];
-		                nilai[i]=nilai[j];
-		                nilai[j]=tmp;
+			if (jumlah>0){
+	          	for (i=0;i<jumlah;i++) {
+	                if (nilai[i]==NULL) printf("  "); 
+					else
+						printf("\n~nilai ulangan harian ke %d :",i+1);
+						printf("%d",nilai[i]);
+	            }
+	            //rumus selection
+				for(i=0;i<(jumlah-1);i++){
+			        for(j= i+1;j<jumlah;j++){
+			            if(nilai[i]>nilai[j]){
+			                tmp=nilai[i];
+			                nilai[i]=nilai[j];
+			                nilai[j]=tmp;
+						}
 					}
+				}			
+				printf("\n\nHasil pengurutan selection sort sebagai berikut:\n");
+				for(i=0;i<jumlah;i++){
+					printf("%d ",nilai[i]);
 				}
-			}			
-			printf("\n\nHasil pengurutan selection sort sebagai berikut:\n");
-			for(i=0;i<jumlah;i++){
-				printf("%d ",nilai[i]);
+				printf("\n");				
 			}
-			printf("\n");
+			else {
+                  printf("\nmasukkan data pada menu no.1 terlebih dahulu");
+            }
 		} 
 		
     	else if (menu==5){
@@ -166,9 +176,11 @@ int main() {
 	            printf ("\n\n\nPencarian Sequence Search");
 	            printf("\n\nmasukkan nilai data yang anda cari: ");
 	            scanf("%d",&cari);
-	            for (i=0;i<100;i++){
-	            	if (nilai[i]==cari) 
-						flag=1;
+	            flag=0;
+	            for (i=0;i<10;i++){
+	            	if (nilai[i]==cari){
+	            		flag=1;
+					} 
 				}
 				if (flag==1)
 					printf ("\ndata yang anda cari ADA");
@@ -183,51 +195,50 @@ int main() {
     	
     	else if (menu==6){
     		if (jumlah>0){
-    		for (i=0; i<jumlah; i++) {
-                if (nilai[i]==NULL) printf("  "); 
-				else
-					printf("\nnilai ulangan harian: %d ",nilai[i]);
-            }
-			for (i=1;i<=jumlah;i++){
-				j=i;
-				while(j>0&&nilai[j-1]>nilai[j]){
-					tmp = nilai[j];
-					nilai[j] = nilai[j-1];
-					nilai[j-1] = tmp;
-					j--;
+	    		for (i=0; i<jumlah; i++) {
+	                if (nilai[i]==NULL) printf("  "); 
+					else
+						printf("\nnilai ulangan harian: %d ",nilai[i]);
+	            }
+				for (i=1;i<=jumlah;i++){
+					j=i;
+					while(j>0&&nilai[j-1]>nilai[j]){
+						tmp = nilai[j];
+						nilai[j] = nilai[j-1];
+						nilai[j-1] = tmp;
+						j--;
+					}
 				}
-			}
-			printf("\n\nHasil pengurutan sebagai berikut:\n");
-			for (i = 0; i <= jumlah-1; i++){
-			printf("%d ", nilai[i]);
-			}
-			printf("\n");
-			
-			kiri=0;
-			kanan=i-1;
-			
-			printf ("\n\n\nPencarian Binary Search");
-			printf("\nmasukkan nilai data yang anda cari: ");
-			scanf("%d",&cari);
-			while (kiri<=kanan&&flag==0){
-				tengah=(kiri+kanan)/2;
-				if(nilai[tengah]==cari)
-					flag=1;
-
-				else if(cari<nilai[tengah])
-					kanan=tengah-1;
+				printf("\n\nHasil pengurutan sebagai berikut:\n");
+				for (i = 0; i <= jumlah-1; i++){
+				printf("%d ", nilai[i]);
+				}
+				printf("\n");
 				
+				kiri=0;
+				kanan=i-1;
+				
+				printf ("\n\n\nPencarian Binary Search");
+				printf("\nmasukkan nilai data yang anda cari: ");
+				scanf("%d",&cari);
+				while (kiri<=kanan&&flag==0){
+					tengah=(kiri+kanan)/2;
+					if(nilai[tengah]==cari)
+						flag=1;
+	
+					else if(cari<nilai[tengah])
+						kanan=tengah-1;
+					
+					else
+						kiri=tengah+1;
+	
+				}
+				if (flag==1)
+					printf ("\ndata yang anda cari ADA");
 				else
-					kiri=tengah+1;
-
-			}
-			if (flag==1)
-				printf ("\ndata yang anda cari ADA");
-			else
-			printf ("\ndata yang anda cari TIDAK ADA");
-			
-			break;
-    			
+				printf ("\ndata yang anda cari TIDAK ADA");
+				
+				break;    			
 			}
 			else{
                 printf("\nmasukkan data pada menu no.1 terlebih dahulu");
