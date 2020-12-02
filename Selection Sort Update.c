@@ -1,4 +1,4 @@
-//Nama 	: Siti Zuhrotn Nafi'atur Rohmah
+//Nama 	: Siti Zuhrotun Nafi'atur Rohmah
 //NPM	: 19081010067
 //Kelas	: Pemrograman Lanjut Paralel A
 
@@ -115,42 +115,55 @@ int main() {
                   printf("\nmasukkan data pada menu no.1 terlebih dahulu");
             }
         }
+ 
         else if (menu==3){
-          	for (i=0;i<jumlah;i++) {
-                if (nilai[i]==NULL) printf("  "); 
-				else
-					printf("\nnilai ulangan harian: %d ",nilai[i]);
-                  }
-			  bubbleSort(nilai,jumlah);
-			  printf("\n\nHasil pengurutan bubble sort sebagai berikut:\n");
-			  for(i = 0; i < jumlah; i++){
-			    printf("%d ", nilai[i]);
-			  }
-			  printf("\n");
-		}     
-		else if (menu==4){
-          	for (i=0;i<jumlah;i++) {
-                if (nilai[i]==NULL) printf("  "); 
-				else
-					printf("\n~nilai ulangan harian ke %d :",i+1);
-					printf("%d",nilai[i]);
-            }
-            //rumus selection
-			for(i=0;i<(jumlah-1);i++){
-		        for(j= i+1;j<jumlah;j++){
-		            if(nilai[i]>nilai[j]){
-		                tmp=nilai[i];
-		                nilai[i]=nilai[j];
-		                nilai[j]=tmp;
-					}
-				}
-			}			
-			printf("\n\nHasil pengurutan selection sort sebagai berikut:\n");
-			for(i=0;i<jumlah;i++){
-				printf("%d ",nilai[i]);
+        	if (jumlah>0){
+	          	for (i=0;i<jumlah;i++) {
+	                if (nilai[i]==NULL) printf("  "); 
+					else
+						printf("\nnilai ulangan harian: %d ",nilai[i]);
+	                  }
+				  bubbleSort(nilai,jumlah);
+				  printf("\n\nHasil pengurutan bubble sort sebagai berikut:\n");
+				  for(i = 0; i < jumlah; i++){
+				    printf("%d ", nilai[i]);
+				  }
+				  printf("\n");        		
 			}
-			printf("\n");
+			else {
+                  printf("\nmasukkan data pada menu no.1 terlebih dahulu");
+            }
 		}     
+
+		else if (menu==4){
+			if (jumlah>0){
+	          	for (i=0;i<jumlah;i++) {
+	                if (nilai[i]==NULL) printf("  "); 
+					else
+						printf("\n~nilai ulangan harian ke %d :",i+1);
+						printf("%d",nilai[i]);
+	            }
+	            //rumus selection
+				for(i=0;i<(jumlah-1);i++){
+			        for(j= i+1;j<jumlah;j++){
+			            if(nilai[i]>nilai[j]){
+			                tmp=nilai[i];
+			                nilai[i]=nilai[j];
+			                nilai[j]=tmp;
+						}
+					}
+				}			
+				printf("\n\nHasil pengurutan selection sort sebagai berikut:\n");
+				for(i=0;i<jumlah;i++){
+					printf("%d ",nilai[i]);
+				}
+				printf("\n");				
+			}
+			else {
+                  printf("\nmasukkan data pada menu no.1 terlebih dahulu");
+            }
+		}     
+
 		else if (menu==5) {
            if (jumlah>0) {
               printf("\nnilai mahasiswa :\n\n");
