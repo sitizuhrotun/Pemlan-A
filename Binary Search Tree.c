@@ -49,54 +49,52 @@ int main() {
 	node* root=NULL;
 	int proses,menu,jumlah=0,total,nilai,angka,i;
 
-    while (proses<1){
+	while (proses<1){
 		printf ("Siti Zuhrotun NR\nDeret NPM+tanggal lahir:19-08-10-1-006-72-005-20-00\n\n\n");
 		printf ("PROGRAM BINARY SEARCH TREE\n");
 		printf ("MENU PROGRAM\n");
 		printf ("1. Memasukkan Nilai Node(WAJIB)\n");
 		printf ("2. Cari Nilai\n");
 		printf ("3. Keluar\n\n");
-		
-        printf("Masukkan menu pilihan anda : ");
-        scanf("%d",&menu);
-        fflush(stdin);       
-        printf("\n");		
 
-        if (menu==1) {
-				printf ("\nMASUKKAN DERET BERJUMLAH 9 INI SEBAGAI NODE: \n19-08-10-1-006-72-005-20-00\n\n\n");
-				printf ("masukkan total node: ");
-				scanf ("%d",&total);
-				printf ("\n");
-			    for (i=0; i<total; i++) {
-					printf ("\nmasukkan nilai node: ");
-					scanf ("%d",&nilai);
-					root=tambah(root,nilai);		
-				}				
-        } 
-        
-        else if (menu==2){
-        	
-        		printf ("\n\nmasukkan angka yang ingin dicari: ");
-				scanf ("%d",&angka);
-				cari(root,angka);
-				
-				if (cari (root,angka)==1)
-					printf ("\nangka yang anda cari ada pada node");
-				else 
-					printf ("\nangka yang anda cari tidak ditemukan pada node.");							
+		printf("Masukkan menu pilihan anda : ");
+		scanf("%d",&menu);
+		fflush(stdin);       
+		printf("\n");		
 
+		if (menu==1) {
+			printf ("\nMASUKKAN DERET BERJUMLAH 9 INI SEBAGAI NODE: \n19-08-10-1-006-72-005-20-00\n\n\n");
+			printf ("masukkan total node: ");
+			scanf ("%d",&total);
+			printf ("\n");
+			for (i=0; i<total; i++) {
+				printf ("\nmasukkan nilai node: ");
+				scanf ("%d",&nilai);
+				root=tambah(root,nilai);		
+			}				
+		} 
+
+		else if (menu==2){        	
+			printf ("\n\nmasukkan angka yang ingin dicari: ");
+			scanf ("%d",&angka);
+			cari(root,angka);
+
+			if (cari (root,angka)==1)
+				printf ("\nangka yang anda cari ada pada node");
+			else 
+				printf ("\nangka yang anda cari tidak ditemukan pada node.");							
 		}
-		
-		else if (menu==3) {
+
+		else if (menu==3){
 			break;
-        } 
-        
+		} 
+
 		else {
-           printf("\nTidak ada di menu");
-        }
-        
-        getch();
-        system("cls");
+		   printf("\nTidak ada di menu");
+		}
+
+		getch();
+		system("cls");
     }   
 return 0;  
 }
